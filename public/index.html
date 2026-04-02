@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="site-title">SatinBliss - Bucket Premium</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-white">
+
+    <nav class="fixed top-0 left-0 w-full z-[100] bg-white/40 backdrop-blur-lg border-b border-white/10 transition-all duration-500">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4 flex justify-between items-center">
+        <div class="flex items-center gap-3">
+            <img id="web-logo" src="..." class="w-9 h-9 md:w-10 md:h-10 rounded-full object-cover border border-pink-100/50 shadow-sm">
+            <span class="text-xl md:text-2xl font-bold text-pink-600 font-estetik tracking-tight">SatinBliss</span>
+        </div>
+        <div class="flex items-center gap-4">
+            <div class="flex items-center gap-4">
+    <a id="btn-wa-header" href="#" target="_blank" class="btn-satin text-[8px] md:text-[10px] tracking-[2px] md:tracking-[3px] py-2 px-4 md:px-6 uppercase font-bold shadow-lg shadow-pink-500/10">
+        <i class="fab fa-whatsapp mr-1.5 md:mr-2"></i>Order WA
+    </a>
+</div>
+    </div>
+</nav>
+
+<header id="main-hero" class="hero-mewah px-6 transition-all duration-1000" style="background-color: #faf7f2; background-position: center; background-size: cover;">
+    <div class="max-w-3xl text-center reveal">
+        <h3 class="uppercase tracking-[5px] text-[10px] mb-4 text-gold font-bold">Bucket Premium</h3>
+        <h2 id="web-name-hero" class="text-6xl md:text-8xl font-luxury mb-8 italic leading-tight">SatinBliss</h2>
+        <div class="luxury-line mx-auto"></div>
+        <p id="web-bio" class="max-w-md mx-auto text-gray-500 font-light leading-relaxed text-sm">
+            Setiap tangkai bunga satin membawa pesan yang tak terucap. Kami merangkainya menjadi sebuah mahakarya yang bernilai.
+        </p>
+    </div>
+</header>
+
+<script>
+    // Script ini akan berjalan seketika sebelum browser selesai meload sisa halaman
+    const fastBg = localStorage.getItem('sb_bg');
+    const fastName = localStorage.getItem('sb_name');
+    const fastBio = localStorage.getItem('sb_bio');
+    
+    if(fastBg) {
+        document.getElementById('main-hero').style.backgroundImage = `linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url('${fastBg}')`;
+    }
+    if(fastName) {
+        document.getElementById('web-name-hero').innerText = fastName;
+        // Opsional: ganti juga yang di navbar jika ID-nya ada
+        const navName = document.getElementById('web-name-nav');
+        if(navName) navName.innerText = fastName;
+    }
+    if(fastBio) {
+        document.getElementById('web-bio').innerText = fastBio;
+    }
+</script>
+
+    <section class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-4 grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-16">
+        </div>
+<section class="py-20 md:py-32 bg-white border-b border-gray-50">
+    <div class="max-w-6xl mx-auto px-4 md:px-6 grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-16">
+        
+        <div class="reveal group text-center space-y-4 p-6 bg-[#fdfcf9] rounded-sm hover:shadow-lg transition-all duration-700 hover:-translate-y-2 border border-gray-50">
+            <div class="w-12 h-12 mx-auto flex items-center justify-center rounded-full border border-gold/30 group-hover:bg-gold transition-colors duration-500">
+                <span class="font-luxury italic text-xl text-gold group-hover:text-black">I</span>
+            </div>
+            <h5 class="font-luxury italic text-lg md:text-2xl text-gray-900 leading-tight">satin Flower</h5>
+            <div class="luxury-line-small w-10 h-[1px] bg-gold/50 mx-auto transition-all duration-500 group-hover:w-20"></div>
+            <p class="font-desc text-[9px] md:text-[10px] text-gray-400 uppercase tracking-[3px] leading-relaxed font-light px-2">
+    BUKAN SEKADAR BUNGA, MELAINKAN SENI MENGABADIKAN MOMEN. SENTUHAN KEMEWAHAN TERTINGGI UNTUK APRESIASI YANG TAK TERLUPAKAN.
+</p>
+        </div>
+
+        <div class="reveal group text-center space-y-4 p-6 bg-[#fdfcf9] rounded-sm hover:shadow-lg transition-all duration-700 hover:-translate-y-2 border border-gray-50">
+            <div class="w-12 h-12 mx-auto flex items-center justify-center rounded-full border border-gold/30 group-hover:bg-gold transition-colors duration-500">
+                <span class="font-luxury italic text-xl text-gold group-hover:text-black">II</span>
+            </div>
+            <h5 class="font-luxury italic text-lg md:text-2xl text-gray-900 leading-tight">Artisan Touch</h5>
+            <div class="luxury-line-small w-10 h-[1px] bg-gold/50 mx-auto transition-all duration-500 group-hover:w-20"></div>
+            <p class="text-[9px] md:text-[10px] text-gray-400 uppercase tracking-[3px] leading-relaxed font-light px-2">
+                Dirangkai dengan ketelitian tingkat tinggi. Setiap sentuhan artisan kami menghidupkan harmoni alam menjadi sebuah karya seni eksklusif yang personal.
+            </p>
+        </div>
+
+        <div class="reveal group text-center space-y-4 p-6 bg-[#fdfcf9] rounded-sm hover:shadow-lg transition-all duration-700 hover:-translate-y-2 border border-gray-50 col-span-2 md:col-span-1">
+            <div class="w-12 h-12 mx-auto flex items-center justify-center rounded-full border border-gold/30 group-hover:bg-gold transition-colors duration-500">
+                <span class="font-luxury italic text-xl text-gold group-hover:text-black">III</span>
+            </div>
+            <h5 class="font-luxury italic text-lg md:text-2xl text-gray-900 leading-tight">Same Day</h5>
+            <div class="luxury-line-small w-10 h-[1px] bg-gold/50 mx-auto transition-all duration-500 group-hover:w-20"></div>
+            <p class="text-[9px] md:text-[10px] text-gray-400 uppercase tracking-[3px] leading-relaxed font-light px-2">
+                Hadir elegan di saat Anda paling membutuhkannya. Layanan pengantaran eksklusif di hari yang sama untuk momen spontan yang tak terlupakan.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+    <section id="philosophy-section" class="py-16 md:py-32 bg-[#121212] text-white overflow-hidden">
+    <div class="max-w-6xl mx-auto px-4 md:px-6 grid grid-cols-2 md:grid-cols-2 gap-4 md:gap-20 items-center">
+        
+        <div class="relative reveal">
+            <img id="phi-img-display" src="https://images.unsplash.com/photo-1591880911020-d3447664b837?auto=format&fit=crop&q=80" class="w-full h-48 md:h-[550px] object-cover rounded-sm grayscale hover:grayscale-0 transition duration-1000">
+            <div class="absolute -bottom-4 -right-4 md:-bottom-8 md:-right-8 bg-[#c5a059] p-4 md:p-10 hidden md:block">
+                <p class="font-luxury text-sm md:text-3xl italic text-black uppercase tracking-widest">Est. 2026</p>
+            </div>
+        </div>
+
+        <div class="space-y-4 md:space-y-10 reveal">
+            <h3 class="text-gold uppercase tracking-[2px] md:tracking-[5px] text-[8px] md:text-[10px] font-bold">Our Philosophy</h3>
+            <h4 id="phi-title-display" class="font-luxury text-lg md:text-5xl italic leading-tight">The Soul of Floristry</h4>
+            <p id="phi-desc-display" class="text-gray-400 leading-relaxed font-light text-[10px] md:text-lg line-clamp-4 md:line-clamp-none">
+                Kami percaya bunga adalah saksi bisu dari janji dan cinta. Setiap buket di SatinBlis dirangkai untuk menciptakan memori yang melampaui waktu.
+            </p>
+            <div class="luxury-line !ml-0 w-10 md:w-32"></div>
+        </div>
+
+    </div>
+<section class="py-24 bg-white">
+    <div class="max-w-5xl mx-auto px-6">
+        <div class="text-center mb-16 reveal">
+            <h3 class="font-luxury text-4xl md:text-5xl italic mb-4 text-gray-900">Our Pricing</h3>
+            <div class="w-20 h-[1px] bg-gold/50 mx-auto mb-4"></div>
+            <p class="text-gray-400 text-[10px] tracking-[5px] uppercase">Bespoke Floral Investment</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-20">
+            
+            <div class="reveal">
+                <h5 class="text-gold text-[11px] tracking-[4px] uppercase font-bold mb-8 border-b border-gold/10 pb-4 italic">
+                    Bouquet Price
+                </h5>
+                <div id="main-price-display" class="grid grid-cols-2 gap-x-4 gap-y-4">
+                    <p class="text-gray-300 italic text-sm col-span-2">Loading prices...</p>
+                </div>
+            </div>
+
+            <div class="reveal">
+                <h5 class="text-gold text-[11px] tracking-[4px] uppercase font-bold mb-8 border-b border-gold/10 pb-4 italic">
+                    Aditional topping
+                </h5>
+                <div id="addon-price-display" class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4">
+                    <p class="text-gray-300 italic text-sm col-span-2">Loading accents...</p>
+                </div>
+                <p class="mt-10 text-[9px] text-gray-400 leading-relaxed uppercase tracking-[3px] border-t border-gray-50 pt-6">
+                    *Harga sudah termasuk premium wrapping.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+    </section> 
+
+<main class="max-w-7xl mx-auto px-6 py-16 md:py-32 bg-white">
+    <div class="text-center mb-16 md:mb-24 reveal">
+        <h3 class="font-luxury text-4xl md:text-6xl italic mb-4 text-gray-900">Product Advantages</h3>
+        <p class="text-gray-400 text-[10px] md:text-[12px] tracking-[5px] md:tracking-[10px] uppercase">
+            Curated Masterpieces
+        </p>
+    </div>
+    
+    <div id="display-produk" class="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-20">
+    </div>
+</main>
+
+<section id="momen-berharga" class="py-32 bg-[#fdfcf9] border-t border-gray-100">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-24 reveal">
+            <h3 class="font-luxury text-4xl md:text-5xl italic mb-4 text-gray-900">Momen Berharga</h3>
+            <p class="text-gray-400 text-[10px] tracking-[5px] uppercase">Voices of Elegance</p>
+            <div class="luxury-line mx-auto"></div>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-2 gap-x-6 gap-y-16 md:gap-x-20 md:gap-y-32">
+            
+            <div id="wedding-story" class="reveal flex flex-col gap-4">
+                <div class="aspect-[3/4] overflow-hidden rounded-sm">
+                    <img id="story1-img-display" src="..." class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-1000">
+                </div>
+                <div class="space-y-2">
+                    <h5 class="text-gold uppercase tracking-[2px] text-[8px] md:text-[10px] font-bold">The Wedding</h5>
+                    <p id="story1-text-display" class="text-gray-500 italic font-light text-[10px] md:text-sm leading-relaxed line-clamp-3">...</p>
+                    <p id="story1-client-display" class="text-[8px] md:text-[9px] tracking-[2px] uppercase font-bold text-gray-900">— ...</p>
+                </div>
+            </div>
+
+            <div id="anniversary-story" class="reveal flex flex-col gap-4 md:translate-y-20">
+                <div class="aspect-[3/4] overflow-hidden rounded-sm">
+                    <img id="story2-img-display" src="..." class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-1000">
+                </div>
+                <div class="space-y-2">
+                    <h5 class="text-gold uppercase tracking-[2px] text-[8px] md:text-[10px] font-bold">The Anniversary</h5>
+                    <p id="story2-text-display" class="text-gray-500 italic font-light text-[10px] md:text-sm leading-relaxed line-clamp-3">...</p>
+                    <p id="story2-client-display" class="text-[8px] md:text-[9px] tracking-[2px] uppercase font-bold text-gray-900">— ...</p>
+                </div>
+            </div>
+
+            <div id="special-story"class="reveal flex flex-col gap-4">
+                <div class="aspect-[3/4] overflow-hidden rounded-sm">
+                    <img id="story3-img-display" src="..." class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-1000">
+                </div>
+                <div class="space-y-2">
+                    <h5 class="text-gold uppercase tracking-[2px] text-[8px] md:text-[10px] font-bold">The Special Gift</h5>
+                    <p id="story3-text-display" class="text-gray-500 italic font-light text-[10px] md:text-sm leading-relaxed line-clamp-3">...</p>
+                    <p id="story3-client-display" class="text-[8px] md:text-[9px] tracking-[2px] uppercase font-bold text-gray-900">— ...</p>
+                </div>
+            </div>
+
+            <div id="graduation-story" class="reveal flex flex-col gap-4 md:translate-y-20">
+                <div class="aspect-[3/4] overflow-hidden rounded-sm">
+                    <img id="story4-img-display" src="..." class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-1000">
+                </div>
+                <div class="space-y-2">
+                    <h5 class="text-gold uppercase tracking-[2px] text-[8px] md:text-[10px] font-bold">The Graduation</h5>
+                    <p id="story4-text-display" class="text-gray-500 italic font-light text-[10px] md:text-sm leading-relaxed line-clamp-3">...</p>
+                    <p id="story4-client-display" class="text-[8px] md:text-[9px] tracking-[2px] uppercase font-bold text-gray-900">— ...</p>
+                </div>
+            </div>
+
+        </div> </div> </section>
+<footer class="bg-[#0f0f0f] text-white pt-24 pb-12 px-6 border-t border-white/5">
+    <div class="max-w-7xl mx-auto">
+        <div id="display-produk" class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-20">
+            
+            <div class="reveal space-y-8">
+                <h4 class="font-luxury italic text-3xl text-white">SatinBlis</h4>
+                <p class="text-gray-500 text-[11px] leading-relaxed uppercase tracking-[2px] font-light">
+                    Merangkai emosi ke dalam bentuk mahakarya flora. Kami percaya setiap kelopak memiliki cerita, dan setiap buket adalah pesan cinta yang abadi.
+                </p>
+                <div class="flex gap-5 text-gray-400">
+                    <a href="https://www.instagram.com/satinbliss_id" class="hover:text-gold transition-colors text-lg"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@satinbliss7" class="hover:text-gold transition-colors text-lg"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://wa.me/6283852435052" class="hover:text-gold transition-colors text-lg"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.facebook.com/ref.refa.31" class="hover:text-gold transition-colors text-lg"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+
+            <div class="reveal space-y-6">
+                <h5 class="text-gold text-[10px] tracking-[5px] uppercase font-bold">Collections</h5>
+                <ul class="space-y-4 text-[10px] tracking-[3px] uppercase text-gray-500 font-medium">
+                    <li><a href="#wedding-story" class="hover:text-white transition">Wedding Bouquets</a></li>
+                    <li><a href="#anniversary-story" class="hover:text-white transition">Anniversary Series</a></li>
+                    <li><a href="#special-story" class="hover:text-white transition">Seasonal Blooms</a></li>
+                    <li><a href="#graduation-story" class="hover:text-white transition">Preserved Flowers</a></li>
+                </ul>
+            </div>
+
+            <div class="reveal space-y-6">
+                <h5 class="text-gold text-[10px] tracking-[5px] uppercase font-bold">Flower Care</h5>
+                <ul class="space-y-4 text-[10px] tracking-[3px] uppercase text-gray-500 font-medium">
+                    <li><a href="legal.html#care" class="hover:text-white transition">Care Instruction</a></li>
+                    <li><a href="legal.html#delivery" class="hover:text-white transition">Delivery Info</a></li>
+                    <li><a href="legal.html#faq" class="hover:text-white transition">FAQ</a></li>
+                    <li><a href="legal.html#sustainability" class="hover:text-white transition">Sustainability</a></li>
+                </ul>
+            </div>
+
+            <div class="reveal space-y-6">
+                <h5 class="text-gold text-[10px] tracking-[5px] uppercase font-bold">The Atelier</h5>
+                <div class="text-gray-500 text-[10px] tracking-[2px] leading-relaxed uppercase">
+                    <p class="mb-4">Workshop & Gallery:</p>
+                    <p id="footer-location-display" class="text-white italic mb-8">Indonesia</p>
+                    <p class="mb-2">Inquiries:</p>
+                    <p class="text-white">satinblis@gmail.com</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+            <p class="text-gray-700 text-[8px] tracking-[5px] uppercase font-bold">
+                &copy; 2025 SatinBlis Atelier. All Rights Reserved.
+            </p>
+            <div class="flex gap-8 text-gray-700 text-[8px] tracking-[4px] uppercase">
+                <a href="legal.html#privacy" class="hover:text-gray-400 transition">Privacy Policy</a>
+                <a href="legal.html#seksi-terms" class="hover:text-gray-400 transition">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script type="module">
+        import { db, collection, onSnapshot, doc } from './firebase-config.js';
+
+        let adminWA = "628"; 
+
+        // 1. SYNC IDENTITY & HERO BACKGROUND (SISTEM MEMORI INSTAN)
+
+// A. TAMPILKAN LANGSUNG DARI MEMORI HP/LAPTOP (0 DETIK LOADING)
+const savedName = localStorage.getItem('sb_name');
+const savedBio = localStorage.getItem('sb_bio');
+const savedBg = localStorage.getItem('sb_bg');
+const savedLogo = localStorage.getItem('sb_logo');
+
+if(savedName) {
+    document.querySelectorAll('#web-name-nav, #web-name-hero, #web-name-footer').forEach(el => {
+        if(el) el.innerText = savedName;
+    });
+}
+if(savedBio) {
+    const bioEl = document.getElementById('web-bio');
+    if(bioEl) bioEl.innerText = savedBio;
+}
+if(savedLogo) {
+    const logoEl = document.getElementById('web-logo');
+    if(logoEl) logoEl.src = savedLogo;
+}
+if(savedBg) {
+    const heroEl = document.querySelector('.hero-mewah');
+    if(heroEl) {
+        // DI SINI TADI YANG KURANG TANDA KUTIP DAN KURUNG PENUTUPNYA
+        heroEl.style.backgroundImage = `linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url('${savedBg}')`;
+    }
+}
+
+// 2. SISTEM UPDATE WA & SYNC DATABASE (SISTEM REAL-TIME)
+// Ini akan memantau nomor WA dan mengupdate memori lokal otomatis
+onSnapshot(doc(db, "settings", "general"), (hasil) => {
+    if (hasil.exists()) {
+        const dataAdmin = hasil.data();
+        
+        // Update Nomor WA di Header
+        const nomorBaru = dataAdmin.wa; 
+        const tombolHeader = document.getElementById('btn-wa-header');
+        if (tombolHeader && nomorBaru) {
+            tombolHeader.href = `https://wa.me/${nomorBaru}`;
+            console.log("Nomor WA Header Sinkron: " + nomorBaru);
+        }
+
+        // B. UPDATE MEMORI LOKAL AGAR SAAT REFRESH TETAP UPDATE
+        if(dataAdmin.webName) localStorage.setItem('sb_name', dataAdmin.webName);
+        if(dataAdmin.bio) localStorage.setItem('sb_bio', dataAdmin.bio);
+        if(dataAdmin.logo) localStorage.setItem('sb_logo', dataAdmin.logo);
+        if(dataAdmin.heroBg) localStorage.setItem('sb_bg', dataAdmin.heroBg);
+        
+        // Jalankan ulang fungsi update tampilan agar data terbaru langsung muncul
+        // (Pastikan kamu punya fungsi untuk merefresh tampilan di sini jika perlu)
+    }
+});
+            
+
+// B. TARIK DATA DARI FIREBASE SECARA DIAM-DIAM & UPDATE MEMORI
+onSnapshot(doc(db, "settings", "general"), (docSnap) => {
+    if(docSnap.exists()){
+        const s = docSnap.data();
+
+        // Simpan data terbaru ke memori browser
+        if(s.webName) localStorage.setItem('sb_name', s.webName);
+        if(s.bio) localStorage.setItem('sb_bio', s.bio);
+        if(s.heroBg) localStorage.setItem('sb_bg', s.heroBg);
+        if(s.logo) localStorage.setItem('sb_logo', s.logo);
+
+        // Terapkan data ke tampilan (jika ada yang kamu ganti di Admin)
+        adminWA = s.wa || "628";
+        document.querySelectorAll('#web-name-nav, #web-name-hero, #web-name-footer').forEach(el => {
+            if(el) el.innerText = s.webName || "SatinBlis";
+        });
+        
+        const bioEl = document.getElementById('web-bio');
+        if(bioEl) bioEl.innerText = s.bio || "Buket bunga premium.";
+        
+        const locEl = document.getElementById('footer-location-display');
+        if(locEl) locEl.innerText = s.location || 'Indonesia';
+        
+        const btnWA = document.getElementById('btn-wa-header');
+        if(btnWA) btnWA.href = `https://wa.me/${adminWA}`;
+        
+        const logoEl = document.getElementById('web-logo');
+        if(s.logo && logoEl) logoEl.src = s.logo;
+        
+        const heroMewah = document.querySelector('.hero-mewah');
+        if(s.heroBg && heroMewah) {
+            heroMewah.style.backgroundImage = `linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url('${s.heroBg}')`;
+        }
+    }
+});
+// --- TARUH DI BARIS 280 (DI BAWAH SYNC IDENTITY) ---
+
+// FUNGSI UNTUK MENAMPILKAN HARGA SECARA REAL-TIME
+onSnapshot(doc(db, "settings", "pricelist"), (snap) => {
+    const mainContainer = document.getElementById('main-price-display');
+    const addonContainer = document.getElementById('addon-price-display');
+
+    if (snap.exists()) {
+        const data = snap.data();
+
+        // Update Main Bouquet
+        if (data.main && mainContainer) {
+            mainContainer.innerHTML = data.main.map(item => `
+                <div class="flex justify-between items-end border-b border-gray-100 pb-2 w-full">
+                    <span class="text-gray-700 font-light text-sm md:text-base">${item.label}</span>
+                    <span class="font-bold text-gray-900 tracking-wider text-right">IDR ${Number(item.price).toLocaleString('id-ID')}</span>
+                </div>
+            `).join('');
+        }
+
+        // Update Addons
+        if (data.addons && addonContainer) {
+            addonContainer.innerHTML = data.addons.map(item => `
+                <div class="flex justify-between items-end border-b border-gray-100 pb-2 w-full">
+                    <span class="text-gray-500 font-light italic text-sm md:text-base">${item.label}</span>
+                    <span class="font-bold text-gray-900 tracking-wider text-right">+ IDR ${Number(item.price).toLocaleString('id-ID')}</span>
+                </div>
+            `).join('');
+        }
+    }
+});
+        // 2. SYNC PHILOSOPHY
+        onSnapshot(doc(db, "content", "philosophy"), (d) => {
+            if(d.exists()){
+                const data = d.data();
+                if(data.title) document.getElementById('phi-title-display').innerText = data.title;
+                if(data.desc) document.getElementById('phi-desc-display').innerText = data.desc;
+                if(data.image) document.getElementById('phi-img-display').src = data.image;
+            }
+        });
+
+        // 3. SYNC STORIES (LENGKAP 1-4)
+        const storyIds = ['story1', 'story2', 'story3', 'story4'];
+        storyIds.forEach(id => {
+            onSnapshot(doc(db, "content", id), (d) => {
+                if(d.exists()){
+                    const data = d.data();
+                    const img = document.getElementById(`${id}-img-display`);
+                    const text = document.getElementById(`${id}-text-display`);
+                    const client = document.getElementById(`${id}-client-display`);
+                    if(data.image && img) img.src = data.image;
+                    if(data.text && text) text.innerText = `"${data.text}"`;
+                    if(data.client && client) client.innerText = `— ${data.client}`;
+                }
+            });
+        });
+
+        // 4. SYNC PRODUCTS
+        onSnapshot(collection(db, "products"), (snapshot) => {
+            const display = document.getElementById('display-produk');
+            display.innerHTML = '';
+            snapshot.forEach((docSnap) => {
+                const p = docSnap.data();
+                const normalPrice = Number(p.price);
+                const discount = Number(p.discount || 0);
+                const finalPrice = discount > 0 ? normalPrice - (normalPrice * discount / 100) : normalPrice;
+
+                display.innerHTML += `
+    <div class="product-card reveal w-full">
+        <div class="relative overflow-hidden mb-2 md:mb-8 group w-full">
+            <img src="${p.image}" class="w-full h-40 md:h-80 object-cover grayscale hover:grayscale-0 transition-all duration-1000">
+        </div>
+        <div class="text-center px-1">
+            <h4 class="font-luxury italic text-[12px] md:text-2xl mb-1 text-gray-900 truncate">${p.name}</h4>
+            <p class="text-[10px] md:text-[11px] text-gold tracking-widest font-bold mb-2">
+                Rp ${finalPrice.toLocaleString('id-ID')}
+            </p>
+            <a href="https://wa.me/${adminWA}?text=Order%20${encodeURIComponent(p.name)}" 
+               target="_blank"
+               class="inline-block text-[8px] md:text-[9px] tracking-[2px] border-b border-black pb-1 uppercase font-bold">
+               pesan sekarang
+            </a>
+        </div>
+    </div>
+`;
+            });
+            setTimeout(reveal, 300);
+        });
+    </script>
+
+    <script>
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal, .product-card");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) reveals[i].classList.add("active");
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        window.addEventListener("load", reveal);
+    </script>
+</body>
+</html>

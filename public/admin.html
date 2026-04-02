@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SatinBlis CMS - Total Control Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/browser-image-compression/2.0.2/browser-image-compression.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,700&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap');
+        body { background-color: #0a0a0a; color: #d1d1d1; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .font-luxury { font-family: 'Playfair Display', serif; }
+        .admin-card { background: #141414; border: 1px solid #222; border-radius: 16px; margin-bottom: 2rem; }
+        .input-luxury { background: #1f1f1f !important; border: 1px solid #333 !important; color: white !important; border-radius: 8px !important; padding: 12px !important; font-size: 13px; transition: 0.3s; width: 100%; }
+        .input-luxury:focus { border-color: #c5a059 !important; outline: none; }
+        .btn-gold { background: #c5a059; color: black; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; font-size: 10px; padding: 14px; border-radius: 8px; transition: 0.3s; width: 100%; cursor: pointer; }
+        .btn-gold:hover { background: #d4b47a; transform: translateY(-2px); }
+        .section-title { color: #c5a059; font-size: 10px; font-weight: 800; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+
+    <div id="login-section" class="flex items-center justify-center min-h-screen p-6">
+        <div class="admin-card p-12 w-full max-w-md text-center">
+            <h2 class="font-luxury text-4xl italic text-white mb-2">SatinBlis</h2>
+            <p class="text-gray-600 text-[9px] tracking-[5px] uppercase mb-10">Secure Access</p>
+            <div class="space-y-4">
+                <input type="email" id="email" class="input-luxury" placeholder="Admin Email">
+                <input type="password" id="password" class="input-luxury" placeholder="Password">
+                <button onclick="handleLogin()" class="btn-gold mt-6">AUTHENTICATE</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="admin-section" class="hidden">
+        <nav class="bg-black/50 backdrop-blur-xl sticky top-0 z-50 border-b border-white/5 p-4">
+            <div class="max-w-7xl mx-auto flex justify-between items-center">
+                <span class="font-luxury italic text-2xl text-white">SatinBlis CMS</span>
+                <button onclick="handleLogout()" class="text-gray-500 hover:text-red-400 text-[10px] tracking-widest transition">LOGOUT <i class="fas fa-power-off ml-2"></i></button>
+            </div>
+        </nav>
+
+        <div class="max-w-7xl mx-auto p-6 grid grid-cols-1 lg:grid-cols-12 gap-8">
+            
+            <div class="lg:col-span-5 space-y-8">
+                
+                <div class="admin-card p-6">
+                    <h3 class="section-title"><i class="fas fa-id-card"></i> Web Identity & Hero</h3>
+                    <div class="space-y-4">
+                        <input type="text" id="set-web-name" class="input-luxury" placeholder="Web Name (SatinBlis)">
+                        <textarea id="set-web-bio" class="input-luxury h-20" placeholder="Hero Bio..."></textarea>
+                        <input type="text" id="set-wa" class="input-luxury" placeholder="WhatsApp (628...)">
+                        <input type="text" id="set-location" class="input-luxury" placeholder="Location">
+                        
+                        <div class="grid grid-cols-2 gap-4 pt-2">
+                            <div>
+                                <label class="text-[8px] text-gray-500 uppercase block mb-1">Logo Profil</label>
+                                <input type="file" id="set-profile-file" class="text-[9px]">
+                            </div>
+                            <div>
+                                <label class="text-[8px] text-gray-500 uppercase block mb-1">Hero Background</label>
+                                <input type="file" id="set-hero-bg-file" class="text-[9px]">
+                            </div>
+                        </div>
+                        <button onclick="updateSettings()" id="btn-update-settings" class="btn-gold mt-4">SAVE ALL IDENTITY</button>
+                    </div>
+                </div>
+
+                <div class="admin-card p-6">
+                    <h3 class="section-title"><i class="fas fa-feather-pointed"></i> Philosophy CMS</h3>
+                    <div class="space-y-4">
+                        <input type="text" id="phi-title" class="input-luxury" placeholder="Philosophy Title">
+                        <textarea id="phi-desc" class="input-luxury h-24" placeholder="Philosophy Description..."></textarea>
+                        <input type="file" id="phi-file" class="text-[10px]">
+                        <button onclick="updatePhilosophy()" class="btn-gold">UPDATE PHILOSOPHY</button>
+                    </div>
+                </div>
+
+                <div class="admin-card p-6">
+                    <h3 class="section-title"><i class="fas fa-quote-left"></i> Client Stories CMS</h3>
+                    <select id="select-story" class="input-luxury mb-4" onchange="loadStoryToForm()">
+                        <option value="story1">Momen: Wedding</option>
+                        <option value="story2">Momen: Anniversary</option>
+                        <option value="story3">Momen: Special Gift</option>
+                        <option value="story4">Momen: Graduation</option>
+                    </select>
+                    <div class="space-y-4">
+                        <textarea id="story-text" class="input-luxury h-20" placeholder="Testimonial text..."></textarea>
+                        <input type="text" id="story-client" class="input-luxury" placeholder="Client Name">
+                        <input type="file" id="story-file" class="text-[10px]">
+                        <button onclick="updateStory()" class="btn-gold">UPDATE SELECTED MOMENT</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-7 space-y-8">
+                <div class="admin-card p-8">
+                    <h3 id="form-title" class="font-luxury text-3xl italic text-white mb-8">Refine Collections</h3>
+                    <input type="hidden" id="edit-id">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <input type="text" id="p-name" class="input-luxury" placeholder="Buket Name">
+                        <input type="number" id="p-price" class="input-luxury" placeholder="Price (IDR)">
+                        <input type="number" id="p-discount" class="input-luxury" placeholder="Discount %">
+                        <input type="file" id="p-img-file" class="text-[10px]">
+                    </div>
+                    <textarea id="p-desc" class="input-luxury mt-4 h-24" placeholder="Product Details..."></textarea>
+                    <div class="flex gap-4 mt-6">
+                        <button onclick="saveProduct()" id="btn-save" class="btn-gold">PUBLISH PIECE</button>
+                        <button onclick="resetForm()" id="btn-cancel" class="hidden bg-white/5 text-[9px] px-6 rounded-lg uppercase tracking-widest">Discard</button>
+                    </div>
+                </div>
+
+                <div class="admin-card overflow-hidden">
+                    <table class="w-full text-left">
+                        <thead class="bg-white/5">
+                            <tr>
+                                <th class="p-4 text-[9px] uppercase tracking-widest text-gold">Product</th>
+                                <th class="p-4 text-[9px] uppercase tracking-widest text-gold text-right">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="list-produk" class="divide-y divide-white/5"></tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="max-w-7xl mx-auto p-6 mt-10 mb-20">
+            <section class="bg-[#111] p-8 rounded-xl border border-gray-800 shadow-2xl">
+                <div class="flex items-center justify-between mb-8 border-b border-gray-800 pb-4">
+                    <h3 class="text-xl font-bold text-white flex items-center gap-3">
+                        <i class="fas fa-tags text-[#c5a059]"></i> Price List Manager
+                    </h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div class="space-y-4">
+                        <h4 class="text-[#c5a059] text-[10px] uppercase tracking-[3px] font-bold">Main Bouquet List</h4>
+                        <div id="main-items-input" class="space-y-3"></div>
+                        <button type="button" onclick="addPriceRow('main')" class="text-pink-400 hover:text-pink-300 text-[10px] font-bold uppercase tracking-wider">+ Tambah Baris Harga</button>
+                    </div>
+                    <div class="space-y-4 border-t md:border-t-0 md:border-l border-gray-800 pt-6 md:pt-0 md:pl-10">
+                        <h4 class="text-[#c5a059] text-[10px] uppercase tracking-[3px] font-bold">Topping / Add-ons</h4>
+                        <div id="addon-items-input" class="space-y-3"></div>
+                        <button type="button" onclick="addPriceRow('addon')" class="text-pink-400 hover:text-pink-300 text-[10px] font-bold uppercase tracking-wider">+ Tambah Baris Topping</button>
+                    </div>
+                </div>
+                <div class="mt-12 pt-8 border-t border-gray-800">
+                    <button type="button" onclick="savePriceList()" class="btn-gold !w-full !py-6">UPDATE PRICE LIST DATABASE</button>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <div id="toast" class="fixed bottom-10 right-10 bg-[#c5a059] text-black px-8 py-4 rounded-lg text-[10px] font-bold tracking-[3px] opacity-0 transition-all duration-700 pointer-events-none translate-y-10 z-[100]">SUCCESS</div>
+
+    <script type="module">
+        import { auth, db, signInWithEmailAndPassword, onAuthStateChanged, signOut, collection, addDoc, onSnapshot, deleteDoc, doc, updateDoc, setDoc, getDoc } from './firebase-config.js';
+
+        // --- AUTH ---
+        window.handleLogin = () => {
+            const e = document.getElementById('email').value;
+            const p = document.getElementById('password').value;
+            const btn = document.querySelector('button[onclick="handleLogin()"]');
+            if (!e || !p) return alert("Email & Password wajib diisi!");
+            btn.disabled = true; btn.innerText = "AUTHENTICATING...";
+            signInWithEmailAndPassword(auth, e, p).catch(err => {
+                alert("Gagal: " + err.message);
+                btn.disabled = false; btn.innerText = "AUTHENTICATE";
+            });
+        };
+
+        window.handleLogout = () => { if(confirm("Logout dari SatinBlis?")) signOut(auth); };
+
+        onAuthStateChanged(auth, user => {
+            document.getElementById('login-section').classList.toggle('hidden', user);
+            document.getElementById('admin-section').classList.toggle('hidden', !user);
+            if(user) { 
+                loadProducts(); loadSettings(); loadPhilosophy(); loadStoryToForm(); loadPriceList();
+                console.log("Login Sukses!"); 
+            }
+        });
+
+        // --- UTILS ---
+        function showToast(msg) {
+            const t = document.getElementById('toast');
+            t.innerText = msg; t.classList.add('opacity-100', 'translate-y-0');
+            setTimeout(() => t.classList.remove('opacity-100', 'translate-y-0'), 3000);
+        }
+        async function compressImage(file) {
+            return await imageCompression(file, { maxSizeMB: 0.4, maxWidthOrHeight: 1000, useWebWorker: true });
+        }
+        const toBase64 = file => new Promise((resolve, reject) => {
+            const r = new FileReader(); r.readAsDataURL(file);
+            r.onload = () => resolve(r.result); r.onerror = e => reject(e);
+        });
+
+        // --- CMS IDENTITY ---
+        window.updateSettings = async () => {
+            const btn = document.getElementById('btn-update-settings');
+            btn.innerText = "SAVING...";
+            const logoFile = document.getElementById('set-profile-file').files[0];
+            const heroFile = document.getElementById('set-hero-bg-file').files[0];
+            let data = {
+                webName: document.getElementById('set-web-name').value,
+                bio: document.getElementById('set-web-bio').value,
+                wa: document.getElementById('set-wa').value,
+                location: document.getElementById('set-location').value
+            };
+            if(logoFile) data.logo = await toBase64(await compressImage(logoFile));
+            if(heroFile) data.heroBg = await toBase64(await compressImage(heroFile));
+            await setDoc(doc(db, "settings", "general"), data, { merge: true });
+            btn.innerText = "SAVE ALL IDENTITY"; showToast("IDENTITY UPDATED");
+        };
+
+        window.loadSettings = async () => {
+            const d = await getDoc(doc(db, "settings", "general"));
+            if(d.exists()){
+                const s = d.data();
+                document.getElementById('set-web-name').value = s.webName || "";
+                document.getElementById('set-web-bio').value = s.bio || "";
+                document.getElementById('set-wa').value = s.wa || "";
+                document.getElementById('set-location').value = s.location || "";
+            }
+        };
+
+        // --- CMS PHILOSOPHY ---
+        window.updatePhilosophy = async () => {
+            const file = document.getElementById('phi-file').files[0];
+            let data = { title: document.getElementById('phi-title').value, desc: document.getElementById('phi-desc').value };
+            if(file) data.image = await toBase64(await compressImage(file));
+            await setDoc(doc(db, "content", "philosophy"), data, { merge: true });
+            showToast("PHILOSOPHY UPDATED");
+        };
+
+        window.loadPhilosophy = async () => {
+            const d = await getDoc(doc(db, "content", "philosophy"));
+            if(d.exists()){
+                document.getElementById('phi-title').value = d.data().title || "";
+                document.getElementById('phi-desc').value = d.data().desc || "";
+            }
+        };
+
+        // --- CMS STORIES ---
+        window.updateStory = async () => {
+            const id = document.getElementById('select-story').value;
+            const file = document.getElementById('story-file').files[0];
+            let data = { text: document.getElementById('story-text').value, client: document.getElementById('story-client').value };
+            if(file) data.image = await toBase64(await compressImage(file));
+            await setDoc(doc(db, "content", id), data, { merge: true });
+            showToast("STORY UPDATED");
+        };
+
+        window.loadStoryToForm = async () => {
+            const id = document.getElementById('select-story').value;
+            const d = await getDoc(doc(db, "content", id));
+            document.getElementById('story-text').value = d.exists() ? d.data().text : "";
+            document.getElementById('story-client').value = d.exists() ? d.data().client : "";
+        };
+
+        // --- PRODUCT MANAGEMENT ---
+        window.saveProduct = async () => {
+            const id = document.getElementById('edit-id').value;
+            const file = document.getElementById('p-img-file').files[0];
+            let data = {
+                name: document.getElementById('p-name').value,
+                price: Number(document.getElementById('p-price').value),
+                discount: Number(document.getElementById('p-discount').value),
+                desc: document.getElementById('p-desc').value
+            };
+            if(file) data.image = await toBase64(await compressImage(file));
+            if(id) await updateDoc(doc(db, "products", id), data);
+            else await addDoc(collection(db, "products"), data);
+            showToast("INVENTORY UPDATED"); resetForm();
+        };
+
+        window.loadProducts = () => {
+            onSnapshot(collection(db, "products"), snap => {
+                const list = document.getElementById('list-produk');
+                list.innerHTML = '';
+                snap.forEach(d => {
+                    const p = d.data();
+                    list.innerHTML += `<tr class="hover:bg-white/5 transition"><td class="p-4 flex items-center gap-4"><img src="${p.image}" class="w-10 h-10 object-cover rounded"><span class="text-sm font-bold text-white">${p.name}</span></td><td class="p-4 text-right space-x-4"><button onclick="editP('${d.id}')" class="text-gray-500 hover:text-gold"><i class="fas fa-edit"></i></button><button onclick="deleteP('${d.id}')" class="text-gray-700 hover:text-red-500"><i class="fas fa-trash"></i></button></td></tr>`;
+                });
+            });
+        };
+
+        window.editP = async id => {
+            const s = await getDoc(doc(db, "products", id));
+            const p = s.data();
+            document.getElementById('edit-id').value = id;
+            document.getElementById('p-name').value = p.name;
+            document.getElementById('p-price').value = p.price;
+            document.getElementById('p-discount').value = p.discount;
+            document.getElementById('p-desc').value = p.desc;
+            document.getElementById('form-title').innerText = "Refining Piece";
+            document.getElementById('btn-cancel').classList.remove('hidden');
+            window.scrollTo({top:0, behavior:'smooth'});
+        };
+
+        window.deleteP = async id => { if(confirm("Remove?")) await deleteDoc(doc(db, "products", id)); };
+        window.resetForm = () => {
+            document.getElementById('edit-id').value = "";
+            document.getElementById('p-name').value = "";
+            document.getElementById('p-price').value = "";
+            document.getElementById('p-discount').value = "0";
+            document.getElementById('p-desc').value = "";
+            document.getElementById('form-title').innerText = "Refine Collections";
+            document.getElementById('btn-cancel').classList.add('hidden');
+        };
+
+        // --- PRICE LIST ---
+        window.savePriceList = async () => {
+            const main = Array.from(document.querySelectorAll('#main-items-input .item-row')).map(row => ({ label: row.querySelectorAll('input')[0].value, price: row.querySelectorAll('input')[1].value }));
+            const addons = Array.from(document.querySelectorAll('#addon-items-input .item-row')).map(row => ({ label: row.querySelectorAll('input')[0].value, price: row.querySelectorAll('input')[1].value }));
+            await setDoc(doc(db, "settings", "pricelist"), { main, addons });
+            showToast("PRICE LIST UPDATED");
+        };
+
+        window.addPriceRow = (type, label = '', price = '') => {
+            const container = document.getElementById(type === 'main' ? 'main-items-input' : 'addon-items-input');
+            const div = document.createElement('div');
+            div.className = "flex gap-3 items-center bg-[#1a1a1a] p-4 rounded border border-gray-800 item-row";
+            div.innerHTML = `<input type="text" value="${label}" class="bg-[#222] text-white p-3 text-sm w-2/3 rounded border border-gray-700"><input type="text" value="${price}" class="bg-[#222] text-[#c5a059] p-3 text-sm w-1/3 text-right rounded border border-gray-700"><button type="button" onclick="this.parentElement.remove()" class="text-red-500 font-bold px-3">&times;</button>`;
+            container.appendChild(div);
+        };
+
+        async function loadPriceList() {
+            const d = await getDoc(doc(db, "settings", "pricelist"));
+            if(d.exists()){
+                const data = d.data();
+                document.getElementById('main-items-input').innerHTML = '';
+                document.getElementById('addon-items-input').innerHTML = '';
+                if(data.main) data.main.forEach(i => window.addPriceRow('main', i.label, i.price));
+                if(data.addons) data.addons.forEach(i => window.addPriceRow('addon', i.label, i.price));
+            }
+        }
+    </script>
+</body>
+</html>
